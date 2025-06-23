@@ -19,3 +19,9 @@ website:
     right:
       - icon: envelope
         href: mailto:matiaslibuy@uchile.cl
+
+format:
+  html:
+    theme: default
+    toc: true
+    math: mathjax
