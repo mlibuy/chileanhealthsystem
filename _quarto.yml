@@ -19,3 +19,5 @@ format:
   html:
     theme: cosmo
     toc: true
+
+metadata-files: []
