@@ -24,13 +24,13 @@ format: html
 
 ```{=html}
 <script>
-  const password = prompt("Por favor, introduce la contraseña para acceder:");
-  const correct = "saraccess2024";  // Cambia esta clave a la que tú quieras
+  const password = prompt("Please enter the password to access this content:");
+  const correct = "saraccess2024";  // Change this password to whatever you prefer
 
   if (password !== correct) {
     document.body.innerHTML = `
-      <h1>Acceso denegado</h1>
-      <p>No tienes permiso para ver este contenido.</p>
+      <h1>Access Denied</h1>
+      <p>You are not authorized to view this content.</p>
     `;
   }
 </script>
@@ -54,11 +54,13 @@ The outcomes were modeled using ordinary least squares (OLS), assuming independe
 
 ### Difference-in-Differences Model
 
-Let \\( Y\_{it} \\) denote the outcome variable—the daily emergency department (ED) visit rate per 1,000 inhabitants—for health service *i* on day *t*.
+Let $(Y\_{it})$ denote the outcome variable—the daily emergency department (ED) visit rate per 1,000 inhabitants—for health service *i* on day *t*.
 
-The DiD regression crude model is specified as:
+The DiD regression model is specified as:
 
-\[ Y\_{it} = \beta\_0 + \beta\_1 \text{Treated}\_i + \beta\_2 \text{Post}\_t + \beta\_3 (\text{Treated}\_i \times \text{Post}*t) +* \varepsilon{it} \]
+$$
+Y_{it} = \beta_0 + \beta_1 \text{Treated}_i + \beta_2 \text{Post}_t + \beta_3 (\text{Treated}_i \times \text{Post}_t) + \varepsilon_{it}
+$$
 
 Where:
 
