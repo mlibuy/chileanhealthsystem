@@ -14,8 +14,8 @@ website:
         text: Emergency medicine physician impact in emergency department timeframes
       - href: bed-estimation.qmd
         text: Bed estimation
-
-format:
-  html:
-    theme: cosmo
-    toc: true
+  page-footer:
+    left: "© 2025 Matías Libuy Ríos"
+    right:
+      - icon: envelope
+        href: mailto:matiaslibuy@uchile.cl
