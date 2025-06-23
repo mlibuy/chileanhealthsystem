@@ -1,14 +1,39 @@
 ---
-title: "Welcome"
+title: "Chilean Health System Analysis"
 format: html
 ---
 
-# Health Systems Analysis
+# Welcome
 
-Welcome to this site. Here you'll find summaries and results from ongoing research on healthcare systems in Chile.
+This website presents a selection of applied research projects and analyses I've developed around the Chilean public healthcare system.  
+My work explores urgent care saturation, hospital capacity planning, and the role of primary and emergency services in improving system performance.
 
-Please explore the tabs to learn more about:
+## Explore the sections
 
--   The role of Urgent Clinics (SAPU, SAR) in network-level care coordination
--   The impact of emergency medicine physicians on patient flow and waiting times
--   Estimations of hospital bed needs across Health Services
+- [Urgent Clinics impact in healthcare networks](urgent-clinics.html)  
+  Evaluation of the impact of new primary urgent care centers (SAPU, SAR) on emergency department demand and network efficiency.
+
+- [Emergency medicine physician impact in emergency department timeframes](physician-impact.html)  
+  Causal analyses (RDD and ITS) on how emergency medicine physicians influence wait times, throughput, and patient outcomes.
+
+- [Bed estimation](bed-estimation.html)  
+  Forecasting hospital bed needs by level of care and health service using adjusted formula-based models and avoidable hospitalizations.
+
+---
+
+## About me
+
+I'm a Chilean physician specialized in public health and epidemiology. I earned my MD at the University of Chile and later completed an MSc in Epidemiology and Public Health at University College London in the United Kingdom.
+
+Currently, I serve as Head of the Adult Emergency Department at Hospital El Carmen de Maipú. I also lecture in health policy and management at the School of Public Health at University of Chile.
+
+My professional focus combines clinical leadership and applied research. I've worked as a consultant for the World Bank, IDB, PAHO/WHO, and the Chilean Ministry of Health on topics such as hospital efficiency, financing, and system modernization.
+
+📄 [Download my full CV (PDF)](Libuy_ML_CV.pdf)
+
+📬 **Email:** [matiaslibuy@uchile.cl](mailto:matiaslibuy@uchile.cl)
+
+---
+
+*Built with [R](https://www.r-project.org/) and [Quarto](https://quarto.org/). Deployed via [GitHub Pages](https://pages.github.com/).*
+
