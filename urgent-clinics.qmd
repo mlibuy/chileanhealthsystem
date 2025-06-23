@@ -1,0 +1,8 @@
+---
+title: "Urgent Clinics impact in healthcare networks"
+format: html
+---
+
+# Urgent Clinics impact in healthcare networks
+
+This section includes descriptive and causal analyses on the effect of SAPU and SAR implementation on emergency department utilization.

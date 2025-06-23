@@ -1,0 +1,21 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Health Systems Analysis"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: urgent-clinics.qmd
+        text: Urgent Clinics impact in healthcare networks
+      - href: physician-impact.qmd
+        text: Emergency medicine physician impact in emergency department timeframes
+      - href: bed-estimation.qmd
+        text: Bed estimation
+
+format:
+  html:
+    theme: cosmo
+    toc: true

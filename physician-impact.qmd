@@ -1,0 +1,8 @@
+---
+title: "Emergency medicine physician impact in emergency department timeframes"
+format: html
+---
+
+# Emergency medicine physician impact in ED timeframes
+
+This section includes interrupted time series and regression discontinuity models assessing the effect of having emergency physicians on critical indicators like length of stay and time-to-doctor.

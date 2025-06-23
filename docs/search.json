@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "physician-impact.html",
+    "href": "physician-impact.html",
+    "title": "Emergency medicine physician impact in emergency department timeframes",
+    "section": "",
+    "text": "Emergency medicine physician impact in ED timeframes\nThis section includes interrupted time series and regression discontinuity models assessing the effect of having emergency physicians on critical indicators like length of stay and time-to-doctor."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Health Systems Analysis\nWelcome to this site. Here you’ll find summaries and results from ongoing research on healthcare systems in Chile.\nPlease explore the tabs to learn more about:\n\nThe role of Urgent Clinics (SAPU, SAR) in network-level care coordination\nThe impact of emergency medicine physicians on patient flow and waiting times\nEstimations of hospital bed needs across Health Services"
+  },
+  {
+    "objectID": "chileanhealthsystem.html",
+    "href": "chileanhealthsystem.html",
+    "title": "chileanhealthsystem",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "chileanhealthsystem.html#quarto",
+    "href": "chileanhealthsystem.html#quarto",
+    "title": "chileanhealthsystem",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "chileanhealthsystem.html#running-code",
+    "href": "chileanhealthsystem.html#running-code",
+    "title": "chileanhealthsystem",
+    "section": "Running Code",
+    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  },
+  {
+    "objectID": "bed-estimation.html",
+    "href": "bed-estimation.html",
+    "title": "Bed estimation",
+    "section": "",
+    "text": "Bed Estimation\nThis section presents models to estimate current and future bed needs per Health Service, incorporating demographic trends and service delivery variables."
+  },
+  {
+    "objectID": "urgent-clinics.html",
+    "href": "urgent-clinics.html",
+    "title": "Urgent Clinics impact in healthcare networks",
+    "section": "",
+    "text": "Urgent Clinics impact in healthcare networks\nThis section includes descriptive and causal analyses on the effect of SAPU and SAR implementation on emergency department utilization."
+  }
+]

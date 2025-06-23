@@ -1,0 +1,8 @@
+---
+title: "Bed estimation"
+format: html
+---
+
+# Bed Estimation
+
+This section presents models to estimate current and future bed needs per Health Service, incorporating demographic trends and service delivery variables.

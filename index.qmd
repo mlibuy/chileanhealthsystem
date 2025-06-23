@@ -1,0 +1,14 @@
+---
+title: "Welcome"
+format: html
+---
+
+# Health Systems Analysis
+
+Welcome to this site. Here you'll find summaries and results from ongoing research on healthcare systems in Chile.
+
+Please explore the tabs to learn more about:
+
+-   The role of Urgent Clinics (SAPU, SAR) in network-level care coordination
+-   The impact of emergency medicine physicians on patient flow and waiting times
+-   Estimations of hospital bed needs across Health Services
