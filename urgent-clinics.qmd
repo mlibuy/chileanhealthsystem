@@ -3,6 +3,121 @@ title: "Urgent Clinics impact in healthcare networks"
 format: html
 ---
 
-# Urgent Clinics impact in healthcare networks
+```{=html}
+<script>
+  const password = prompt("Por favor, introduce la contraseña para acceder:");
+  const correct = "saraccess2024"; // Puedes cambiar esta clave a la que tú quieras
 
-This section includes descriptive and causal analyses on the effect of SAPU and SAR implementation on emergency department utilization.
+  if (password !== correct) {
+    document.body.innerHTML = `
+      <h1>Acceso denegado</h1>
+      <p>No tienes permiso para ver este contenido.</p>
+    `;
+  }
+</script>
+```
+
+---
+title: "Urgent Clinics impact in healthcare networks"
+format: html
+---
+
+```{=html}
+<script>
+  const password = prompt("Por favor, introduce la contraseña para acceder:");
+  const correct = "saraccess2024";  // Cambia esta clave a la que tú quieras
+
+  if (password !== correct) {
+    document.body.innerHTML = `
+      <h1>Acceso denegado</h1>
+      <p>No tienes permiso para ver este contenido.</p>
+    `;
+  }
+</script>
+```
+
+## The impact of urgent care centres (SAR) on ED use rates in Chile
+
+### Introduction
+
+Emergency Department (ED) crowding is a growing concern in healthcare systems worldwide, including Chile, where public health services serve over 80% of the population. In response to rising demand and to reduce unnecessary emergency department (ED) visits, the Chilean Ministry of Health has implemented Urgent Primary Care Centres (SAPUs) and, more recently, High-Resolution Urgent Care Centres (SARs), which operate extended hours and provide enhanced diagnostic and therapeutic capabilities. Since their inception, more than 100 SARs have been established across the country over the past two decades.
+
+Chile’s public health system (80% of population) is organized into 29 regional Health Services (Servicios de Salud), each responsible for coordinating care delivery within its territory. This example study focuses on the Servicio de Salud Metropolitano Central (SSMC), one of the largest and most urbanized networks, located in Santiago. Specifically, it evaluates the effect of implementing two SARs—SAR Enfermera Sofía Pincheira (opened on September 15, 2016) and SAR Michelle Bachelet (opened on August 13, 2024)—on daily emergency care utilization rates per 1,000 inhabitants. The analysis uses neighboring health services as counterfactuals to estimate the impact of these interventions within the SSMC.
+
+### Methods
+
+Data are derived from administrative records of the REM 08 - Urgent Care Records, reported by the Department of Health Statistics and Information (DEIS), which cover all urgent care visits across public facilities in Chile. The study population includes all adult urgent care visits in the SSMC network and selected comparison networks.
+
+A difference-in-differences (DiD) design was employed to estimate the causal effect of SAR implementation on the daily emergency department (ED) utilization rate per 1,000 inhabitants. This crude model included indicators for the treated area (treated), the post-intervention period (periododespues), and their interaction (treated:periododespues), which captures the DiD estimate.
+
+The outcomes were modeled using ordinary least squares (OLS), assuming independent and identically distributed (IID) errors.
+
+### Difference-in-Differences Model
+
+Let \\( Y\_{it} \\) denote the outcome variable—the daily emergency department (ED) visit rate per 1,000 inhabitants—for health service *i* on day *t*.
+
+The DiD regression crude model is specified as:
+
+\[ Y\_{it} = \beta\_0 + \beta\_1 \text{Treated}\_i + \beta\_2 \text{Post}\_t + \beta\_3 (\text{Treated}\_i \times \text{Post}*t) +* \varepsilon{it} \]
+
+Where:
+
+-   **Treated**<sub>i</sub> is a binary indicator equal to 1 if the observation belongs to the treated health service (SSMC), and 0 otherwise.
+-   **Post**<sub>t</sub> is a binary indicator equal to 1 for observations after the SAR implementation date, and 0 otherwise.
+-   **Treated**<sub>i</sub> × Post<sub>t</sub> is the interaction term that captures the difference-in-differences estimator.
+-   **β₃** is the DiD estimate of the causal effect of the SAR implementation.
+-   **ε**<sub>it</sub> is the error term, assumed to be IID.
+
+To support this assumption, we selected comparison health services using the MAD in daily rates prior to intervention. The unit of analysis was the daily ED rate per 1,000 inhabitants, aggregated by health service.
+
+We used symmetric 360-day windows before and after the intervention. No other major policy disruptions or new urgent care centres were introduced during the study periods, minimizing the risk of confounding shocks. By incorporating a contemporaneous control group, the DiD model adjusts for time-varying factors such as seasonality, public health campaigns, or social unrest. The large sample size (N \> 21,000) and the use of national standardized data (REM A-08) enhance the robustness and generalizability of the results.
+
+### Selection of Comparison Groups
+
+To identify the most appropriate control services, I calculated the Mean Absolute Difference (MAD) in daily ED rates between SSMC and all other services over the 360 days preceding the intervention.
+
+-   For SAR Sofía Pincheira, the Servicio de Salud Metropolitano Sur Oriente (SSMSO) presented the lowest MAD (0.243) and was selected as the control.
+-   For SAR Michelle Bachelet, the same control (SSMSO, MAD = 0.251) was used, given its comparability and proximity.
+
+### Results
+
+#### SAR Sofía Pincheira (2016 Intervention)
+
+DiD estimates from the ±360-day window:
+
+| Variable       | Estimate | Std. Error | t value | p-value  |
+|----------------|----------|------------|---------|----------|
+| Intercept      | 0.839    | 0.0084     | 99.79   | \< 0.001 |
+| Treated (SSMC) | -0.217   | 0.0171     | -12.75  | \< 0.001 |
+| Post-period    | -0.023   | 0.0119     | -1.90   | 0.058    |
+| DiD Estimate   | -0.086   | 0.0241     | -3.57   | 0.0004   |
+
+**Interpretation**: A statistically significant reduction of 0.086 daily visits per 1,000 inhabitants in SSMC relative to control post-intervention.
+
+#### SAR Michelle Bachelet (2024 Intervention)
+
+Estimates using the same ±360-day window:
+
+| Variable       | Estimate | Std. Error | t value | p-value  |
+|----------------|----------|------------|---------|----------|
+| Intercept      | 0.808    | 0.0092     | 88.03   | \< 0.001 |
+| Treated (SSMC) | -0.451   | 0.0172     | -26.18  | \< 0.001 |
+| Post-period    | 0.016    | 0.0139     | 1.14    | 0.255    |
+| DiD Estimate   | -0.032   | 0.0257     | -1.23   | 0.217    |
+
+**Interpretation**: No statistically significant change in daily ED rates after SAR Michelle Bachelet's implementation.
+
+### Discussion
+
+-   The SAR Sofía Pincheira showed a modest but statistically significant reduction in ED visits, suggesting effectiveness in mitigating ED crowding.
+-   The SAR Michelle Bachelet did not yield a significant effect. This could be due to factors such as location, overlapping catchment areas, baseline saturation, or post-pandemic dynamics.
+-   The study contributes to evidence-based evaluations of system-level interventions for managing demand for ED services.
+
+### Future Research Directions
+
+-   Expand the analysis to all SARs implemented nationwide in the past decade.
+-   Apply synthetic control or matching methods for enhanced causal inference.
+-   Incorporate geospatial data, triage categories, arrival times, and hospital congestion metrics.
+-   Control for seasonality, epidemics, and sociopolitical disruptions.
+-   Assess referral hospital-level effects, especially for Hospital El Carmen in Maipú, which both SARs serve.
+-   Build a centralized national dataset for comprehensive system-wide evaluations of urgent care reforms.
