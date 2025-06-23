@@ -23,17 +23,26 @@ My work explores urgent care saturation, hospital capacity planning, and the rol
 
 ## About me
 
+<div style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap;">
+
+<img src="matias-libuy.jpg" alt="Matías Libuy" style="width: 180px; border-radius: 12px; box-shadow: 0 0 10px #ccc;">
+
+<div style="max-width: 600px;">
+
 I'm a Chilean physician specialized in public health and epidemiology. I earned my MD at the University of Chile and later completed an MSc in Epidemiology and Public Health at University College London in the United Kingdom.
 
 Currently, I serve as Head of the Adult Emergency Department at Hospital El Carmen de Maipú. I also lecture in health policy and management at the School of Public Health at University of Chile.
 
 My professional focus combines clinical leadership and applied research. I've worked as a consultant for the World Bank, IDB, PAHO/WHO, and the Chilean Ministry of Health on topics such as hospital efficiency, financing, and system modernization.
 
-📄 [Download my full CV (PDF)](Libuy_ML_CV.pdf)
-
+📄 [Download my full CV (PDF)](Libuy_ML_CV.pdf)  
 📬 **Email:** [matiaslibuy@uchile.cl](mailto:matiaslibuy@uchile.cl)
+
+</div>
+</div>
 
 ---
 
 *Built with [R](https://www.r-project.org/) and [Quarto](https://quarto.org/). Deployed via [GitHub Pages](https://pages.github.com/).*
+
 
