@@ -19,8 +19,6 @@ format: html
 
 # Emergency medicine physician impact in ED timeframes
 
-This section includes interrupted time series and regression discontinuity models assessing the effect of having emergency physicians on critical indicators like length of stay and time-to-doctor.
-
 ## Evaluating the Impact of Introducing an Ambulatory Process Coordinator on Emergency Department Throughput: A Regression Discontinuity Design
 
 ### Introduction
@@ -41,20 +39,20 @@ $$
 
 **Where:**
 
-- \( Y_i \): outcome for individual *i*, defined as time from medical evaluation to discharge (in minutes),  
-- \( D_i = 1 \) if \( x_i \geq 0 \) (post-intervention), 0 otherwise,  
-- \( f(x_i) \): flexible function (e.g., local linear) of the running variable *x*,  
-- \( \tau \): treatment effect of interest (impact of the intervention),  
-- \( \varepsilon_i \): error term.  
+-   $(Y_i)$: outcome for individual *i*, defined as time from medical evaluation to discharge (in minutes),\
+-   $(D_i = 1)$ if $(x_i \geq 0)$ (post-intervention), 0 otherwise,\
+-   $(f(x_i))$: flexible function (e.g., local linear) of the running variable *x*,\
+-   $(\tau )$: treatment effect of interest (impact of the intervention),\
+-   $(\varepsilon\_i)$: error term.
 
 We employ local polynomial regressions with robust bias correction and optimal bandwidth selection using the `rdrobust` package in R. Models are estimated for bandwidths ranging from ±30 to ±365 days.
 
 #### Data and Variable Construction
 
-- **Outcome:** Time to medical discharge (in minutes), computed from h:m:s timestamp strings.  
-- **Running variable:** Days from October 22, 2023.  
-- **Filters:** Exclude extreme values (<0 or >1000 min); jitter applied (±0.001) to avoid mass points.  
-- **Seasonality:** Adjusted via STL decomposition and categorical regression on week-of-year.  
+-   **Outcome:** Time to medical discharge (in minutes), computed from h:m:s timestamp strings.\
+-   **Running variable:** Days from October 22, 2023.\
+-   **Filters:** Exclude extreme values (\<0 or \>1000 min); jitter applied (±0.001) to avoid mass points.\
+-   **Seasonality:** Adjusted via STL decomposition and categorical regression on week-of-year.
 
 ### Results
 
@@ -64,11 +62,23 @@ The red line represents a smoothed local polynomial regression on either side of
 
 #### Regression Equation and Definitions
 
-![RDD Model Equation](Screenshot%202025-06-25%20at%208.25.52%E2%80%AFPM.png)
+The estimating equation used in this Regression Discontinuity Design is:
+
+$$
+Y_i = \alpha + \tau D_i + f(x_i) + \varepsilon_i
+$$
+
+Where:
+
+-   ( Y_i ): Outcome for individual *i*, defined as time from medical evaluation to discharge (in minutes).\
+-   ( D_i ): Treatment indicator, equal to 1 if day ( x_i \geq 0 ) (post-intervention), 0 otherwise.\
+-   ( f(x_i) ): Smooth function of the running variable (days relative to intervention).\
+-   ( \tau ): Average treatment effect at the cutoff (causal impact of intervention).\
+-   ( \varepsilon\_i ): Error term, assumed to be independent and identically distributed (i.i.d.).
 
 #### Figure 1. Impact of an emergency physician on time from medical evaluation to discharge, RDD (±60-day window)
 
-![RDD Plot](Screenshot%202025-06-25%20at%208.26.03%E2%80%AFPM.png)
+![RDD Plot](rdd.jpg)
 
 There appears to be a discrete drop in the average time from medical evaluation to discharge immediately after the intervention, suggesting a potential causal reduction in care delays following the specialist's arrival.
 
@@ -82,20 +92,20 @@ This RDD analysis reveals a significant and immediate reduction in discharge tim
 
 The findings suggest that incorporating a dedicated coordinator can enhance operational efficiency by:
 
-- Streamlining case prioritization  
-- Reducing backlogs  
-- Improving interdisciplinary communication  
+-   Streamlining case prioritization\
+-   Reducing backlogs\
+-   Improving interdisciplinary communication
 
 These results provide support for the adoption and scaling of similar roles in comparable hospital settings.
 
 However, limitations include:
 
-- Potential unobserved co-interventions  
-- Single-hospital context, limiting generalizability  
+-   Potential unobserved co-interventions\
+-   Single-hospital context, limiting generalizability
 
 ### Future Directions
 
-- Replicate across multiple hospitals and systems.  
-- Assess additional outcomes (e.g., mortality, readmissions, patient satisfaction).  
-- Incorporate qualitative assessments of staff and patient experience.  
-- Apply staggered rollout designs or multi-site trials for better causal identification.  
+-   Replicate across multiple hospitals and systems.\
+-   Assess additional outcomes (e.g., mortality, readmissions, patient satisfaction).\
+-   Incorporate qualitative assessments of staff and patient experience.\
+-   Apply staggered rollout designs or multi-site trials for better causal identification.

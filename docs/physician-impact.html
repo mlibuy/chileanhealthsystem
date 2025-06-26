@@ -198,7 +198,6 @@ window.Quarto = {
 </script>
 <section id="emergency-medicine-physician-impact-in-ed-timeframes" class="level1">
 <h1>Emergency medicine physician impact in ED timeframes</h1>
-<p>This section includes interrupted time series and regression discontinuity models assessing the effect of having emergency physicians on critical indicators like length of stay and time-to-doctor.</p>
 <section id="evaluating-the-impact-of-introducing-an-ambulatory-process-coordinator-on-emergency-department-throughput-a-regression-discontinuity-design" class="level2">
 <h2 class="anchored" data-anchor-id="evaluating-the-impact-of-introducing-an-ambulatory-process-coordinator-on-emergency-department-throughput-a-regression-discontinuity-design">Evaluating the Impact of Introducing an Ambulatory Process Coordinator on Emergency Department Throughput: A Regression Discontinuity Design</h2>
 <section id="introduction" class="level3">
@@ -216,15 +215,15 @@ Y_i = \alpha + \tau D_i + f(x_i) + \varepsilon_i
 \]</span></p>
 <p><strong>Where:</strong></p>
 <ul>
-<li>( Y_i ): outcome for individual <em>i</em>, defined as time from medical evaluation to discharge (in minutes),<br>
+<li><span class="math inline">\((Y_i)\)</span>: outcome for individual <em>i</em>, defined as time from medical evaluation to discharge (in minutes),<br>
 </li>
-<li>( D_i = 1 ) if ( x_i ) (post-intervention), 0 otherwise,<br>
+<li><span class="math inline">\((D_i = 1)\)</span> if <span class="math inline">\((x_i \geq 0)\)</span> (post-intervention), 0 otherwise,<br>
 </li>
-<li>( f(x_i) ): flexible function (e.g., local linear) of the running variable <em>x</em>,<br>
+<li><span class="math inline">\((f(x_i))\)</span>: flexible function (e.g., local linear) of the running variable <em>x</em>,<br>
 </li>
-<li>( ): treatment effect of interest (impact of the intervention),<br>
+<li><span class="math inline">\((\tau )\)</span>: treatment effect of interest (impact of the intervention),<br>
 </li>
-<li>( _i ): error term.</li>
+<li><span class="math inline">\((\varepsilon\_i)\)</span>: error term.</li>
 </ul>
 <p>We employ local polynomial regressions with robust bias correction and optimal bandwidth selection using the <code>rdrobust</code> package in R. Models are estimated for bandwidths ranging from ±30 to ±365 days.</p>
 </section>
@@ -247,18 +246,28 @@ Y_i = \alpha + \tau D_i + f(x_i) + \varepsilon_i
 <p>The red line represents a smoothed local polynomial regression on either side of the threshold (the vertical black line at day 0), and blue dots with error bars show binned average outcomes with their confidence intervals.</p>
 <section id="regression-equation-and-definitions" class="level4">
 <h4 class="anchored" data-anchor-id="regression-equation-and-definitions">Regression Equation and Definitions</h4>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Screenshot 2025-06-25 at 8.25.52 PM.png" class="img-fluid figure-img"></p>
-<figcaption>RDD Model Equation</figcaption>
-</figure>
-</div>
+<p>The estimating equation used in this Regression Discontinuity Design is:</p>
+<p><span class="math display">\[
+Y_i = \alpha + \tau D_i + f(x_i) + \varepsilon_i
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li>( Y_i ): Outcome for individual <em>i</em>, defined as time from medical evaluation to discharge (in minutes).<br>
+</li>
+<li>( D_i ): Treatment indicator, equal to 1 if day ( x_i ) (post-intervention), 0 otherwise.<br>
+</li>
+<li>( f(x_i) ): Smooth function of the running variable (days relative to intervention).<br>
+</li>
+<li>( ): Average treatment effect at the cutoff (causal impact of intervention).<br>
+</li>
+<li>( _i ): Error term, assumed to be independent and identically distributed (i.i.d.).</li>
+</ul>
 </section>
 <section id="figure-1.-impact-of-an-emergency-physician-on-time-from-medical-evaluation-to-discharge-rdd-60-day-window" class="level4">
 <h4 class="anchored" data-anchor-id="figure-1.-impact-of-an-emergency-physician-on-time-from-medical-evaluation-to-discharge-rdd-60-day-window">Figure 1. Impact of an emergency physician on time from medical evaluation to discharge, RDD (±60-day window)</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Screenshot 2025-06-25 at 8.26.03 PM.png" class="img-fluid figure-img"></p>
+<p><img src="rdd.jpg" class="img-fluid figure-img"></p>
 <figcaption>RDD Plot</figcaption>
 </figure>
 </div>

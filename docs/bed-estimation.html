@@ -200,7 +200,6 @@ window.Quarto = {
 </script>
 <section id="bed-model-estimation-a-first-example" class="level1">
 <h1>Bed model estimation, a first example</h1>
-<p>This section presents models to estimate current and future bed needs per Health Service, incorporating demographic trends and service delivery variables.</p>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>Chile lacks a standardized, evidence-based methodology for estimating hospital bed needs across its 29 Health Services. This section presents a first analytical exercise using a formula-based approach to estimate current and projected hospital bed requirements. While this method provides a useful starting point, it should ultimately evolve into a more comprehensive capacity planning model—one that integrates service flows, population dynamics, and technological change.</p>
@@ -230,13 +229,13 @@ B = \frac{D \times (1 - s)}{O \times A}
 \]</span></p>
 <p>Where:</p>
 <ul>
-<li>( D ): Total patient-days of demand for hospital care<br>
+<li><span class="math inline">\((D)\)</span>: Total patient-days of demand for hospital care<br>
 </li>
-<li>( s ): Proportion of potentially avoidable hospitalizations (proxy for substitution by primary care)<br>
+<li><span class="math inline">\((s)\)</span>: Proportion of potentially avoidable hospitalizations (proxy for substitution by primary care)<br>
 </li>
-<li>( O ): Target occupancy rate<br>
+<li><span class="math inline">\((O)\)</span>: Target occupancy rate<br>
 </li>
-<li>( A ): Average Length of Stay (ALOS)</li>
+<li><span class="math inline">\((A)\)</span>: Average Length of Stay (ALOS)</li>
 </ul>
 <p>This formula assumes a steady-state approximation and deterministic behavior. It was implemented in <strong>R</strong> using publicly available sources.</p>
 </section>

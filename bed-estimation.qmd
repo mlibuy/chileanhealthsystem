@@ -19,8 +19,6 @@ format: html
 
 # Bed model estimation, a first example
 
-This section presents models to estimate current and future bed needs per Health Service, incorporating demographic trends and service delivery variables.
-
 ## Introduction
 
 Chile lacks a standardized, evidence-based methodology for estimating hospital bed needs across its 29 Health Services. This section presents a first analytical exercise using a formula-based approach to estimate current and projected hospital bed requirements. While this method provides a useful starting point, it should ultimately evolve into a more comprehensive capacity planning model—one that integrates service flows, population dynamics, and technological change.
@@ -37,15 +35,15 @@ This initial model aims to quantify the bed gap and spark technical discussion. 
 
 Following the systematic review by Ravaghi et al. (2020), five main approaches to hospital bed planning were identified:
 
-- **Trend-based models:** Useful in systems with stable historical data. In Chile, this is limited by inconsistent structural changes.
-- **Regression models:** Require granular patient-level data, which is often unavailable.
-- **Simulation or capacity models:** Powerful but need detailed information on patient flows and time-use.
-- **Optimization models:** Depend on strong cost assumptions and efficiency goals.
-- **Formula-based models:** Transparent, adaptable, and feasible in data-limited environments—thus selected for this study.
+-   **Trend-based models:** Useful in systems with stable historical data. In Chile, this is limited by inconsistent structural changes.
+-   **Regression models:** Require granular patient-level data, which is often unavailable.
+-   **Simulation or capacity models:** Powerful but need detailed information on patient flows and time-use.
+-   **Optimization models:** Depend on strong cost assumptions and efficiency goals.
+-   **Formula-based models:** Transparent, adaptable, and feasible in data-limited environments—thus selected for this study.
 
 ## Estimation Formula
 
-This first example is a model that estimates the number of beds (\( B \)) needed using the following formula:
+This first example is a model that estimates the number of beds (( B )) needed using the following formula:
 
 $$
 B = \frac{D \times (1 - s)}{O \times A}
@@ -53,18 +51,18 @@ $$
 
 Where:
 
-- \( D \): Total patient-days of demand for hospital care  
-- \( s \): Proportion of potentially avoidable hospitalizations (proxy for substitution by primary care)  
-- \( O \): Target occupancy rate  
-- \( A \): Average Length of Stay (ALOS)  
+-   $(D)$: Total patient-days of demand for hospital care\
+-   $(s)$: Proportion of potentially avoidable hospitalizations (proxy for substitution by primary care)\
+-   $(O)$: Target occupancy rate\
+-   $(A)$: Average Length of Stay (ALOS)
 
 This formula assumes a steady-state approximation and deterministic behavior. It was implemented in **R** using publicly available sources.
 
 ## Data Sources
 
-- **DEIS (Ministry of Health):** Hospital discharges, diagnoses, and ALOS by bed type (2018–2023), excluding neonatology and mental health  
-- **INE Census Projections:** Population estimates by commune and age group  
-- **FONASA Enrollment:** Used to define the public healthcare population denominator  
+-   **DEIS (Ministry of Health):** Hospital discharges, diagnoses, and ALOS by bed type (2018–2023), excluding neonatology and mental health\
+-   **INE Census Projections:** Population estimates by commune and age group\
+-   **FONASA Enrollment:** Used to define the public healthcare population denominator
 
 ## Results
 
@@ -84,12 +82,12 @@ This projection reverses previous assumptions of overcapacity and highlights the
 
 ## Future Analytical Extensions
 
-1. **International Benchmarking:** Conduct a literature review of hospital bed planning models used globally to guide policy design in Chile.
+1.  **International Benchmarking:** Conduct a literature review of hospital bed planning models used globally to guide policy design in Chile.
 
-2. **Spatial and Equity Adjustments:** Integrate territorial and sociodemographic variables (rurality, population density, age structure, SES) into the model.
+2.  **Spatial and Equity Adjustments:** Integrate territorial and sociodemographic variables (rurality, population density, age structure, SES) into the model.
 
-3. **Complementary Models:** Apply simulation techniques or dynamic systems models for robustness checks and scenario testing.
+3.  **Complementary Models:** Apply simulation techniques or dynamic systems models for robustness checks and scenario testing.
 
-4. **Crisis and Climate Integration:** Model the impact of external shocks—such as heatwaves, air pollution, or epidemics—on hospital capacity requirements.
+4.  **Crisis and Climate Integration:** Model the impact of external shocks—such as heatwaves, air pollution, or epidemics—on hospital capacity requirements.
 
-5. **Towards a National Capacity Model:** This first exercise should serve as a foundation for a national, publicly validated capacity model for hospital planning in Chile.
+5.  **Towards a National Capacity Model:** This first exercise should serve as a foundation for a national, publicly validated capacity model for hospital planning in Chile.
