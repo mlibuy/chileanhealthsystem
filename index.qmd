@@ -16,7 +16,7 @@ My work explores urgent care saturation, hospital capacity planning, and the rol
 - [Emergency medicine physician impact in emergency department timeframes](physician-impact.html)  
   Causal analyses (RDD and ITS) on how emergency medicine physicians influence wait times, throughput, and patient outcomes.
 
-- [Bed estimation](bed-estimation.html)  
+- [Bed model estimation](bed-estimation.html)  
   Forecasting hospital bed needs by level of care and health service using adjusted formula-based models and avoidable hospitalizations.
 
 ---

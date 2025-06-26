@@ -13,7 +13,7 @@ website:
       - href: physician-impact.qmd
         text: Emergency medicine physician impact in emergency department timeframes
       - href: bed-estimation.qmd
-        text: Bed estimation
+        text: Service/bed model estimation for Chile
   page-footer:
     left: "© 2025 Matías Libuy Ríos"
     right:

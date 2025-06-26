@@ -17,10 +17,6 @@ format: html
 </script>
 ```
 
-# Emergency medicine physician impact in ED timeframes
-
-## Evaluating the Impact of Introducing an Ambulatory Process Coordinator on Emergency Department Throughput: A Regression Discontinuity Design
-
 ### Introduction
 
 In October 2023, Hospital El Carmen in Maipú implemented a new position—the Ambulatory Process Coordinator—in the Adult Emergency Department. This role, held by a certified emergency physician, was introduced to streamline patient flow and ensure that clinical decisions (admission, discharge, referral) were made within 6 hours of admission.
