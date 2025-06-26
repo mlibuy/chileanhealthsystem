@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Bed estimation – matiaslibuy</title>
+<title>Bed model estimation for Chile – matiaslibuy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -149,7 +149,19 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#bed-estimation" id="toc-bed-estimation" class="nav-link active" data-scroll-target="#bed-estimation">Bed Estimation</a></li>
+  <li><a href="#bed-model-estimation-a-first-example" id="toc-bed-model-estimation-a-first-example" class="nav-link active" data-scroll-target="#bed-model-estimation-a-first-example">Bed model estimation, a first example</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a>
+  <ul class="collapse">
+  <li><a href="#review-of-planning-models" id="toc-review-of-planning-models" class="nav-link" data-scroll-target="#review-of-planning-models">Review of Planning Models</a></li>
+  </ul></li>
+  <li><a href="#estimation-formula" id="toc-estimation-formula" class="nav-link" data-scroll-target="#estimation-formula">Estimation Formula</a></li>
+  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data Sources</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
+  <li><a href="#future-analytical-extensions" id="toc-future-analytical-extensions" class="nav-link" data-scroll-target="#future-analytical-extensions">Future Analytical Extensions</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -158,7 +170,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Bed estimation</h1>
+<h1 class="title">Bed model estimation for Chile</h1>
 </div>
 
 
@@ -175,12 +187,99 @@ window.Quarto = {
 </header>
 
 
-<section id="bed-estimation" class="level1">
-<h1>Bed Estimation</h1>
+<script>
+  const password = prompt("Please enter the password to access this content:");
+  const correct = "beds2024";  // Cambia esta clave si lo deseas
+
+  if (password !== correct) {
+    document.body.innerHTML = `
+      <h1>Access Denied</h1>
+      <p>You are not authorized to view this content.</p>
+    `;
+  }
+</script>
+<section id="bed-model-estimation-a-first-example" class="level1">
+<h1>Bed model estimation, a first example</h1>
 <p>This section presents models to estimate current and future bed needs per Health Service, incorporating demographic trends and service delivery variables.</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Chile lacks a standardized, evidence-based methodology for estimating hospital bed needs across its 29 Health Services. This section presents a first analytical exercise using a formula-based approach to estimate current and projected hospital bed requirements. While this method provides a useful starting point, it should ultimately evolve into a more comprehensive capacity planning model—one that integrates service flows, population dynamics, and technological change.</p>
+<p>Chile currently operates with only 2.1 hospital beds per 1,000 inhabitants, well below the OECD average of 4.3 (OECD, 2023). This limited supply is further constrained by regional disparities and the absence of national planning tools to guide hospital infrastructure development. Unlike countries that employ structured capacity models—such as the one developed by Trye et al.&nbsp;(2002), which incorporates demographic trends, disease prevalence, patient flows, and length of stay into iterative simulations—Chile relies on historical inertia rather than technical modeling to inform bed allocation.</p>
+<p>The lack of such tools has tangible consequences: insufficient inpatient capacity is one of the main contributors to ED boarding and prolonged length of stay. While expanding physical infrastructure is one option, international evidence shows that efficiency improvements and substitution strategies (e.g., hospital-at-home programs, short-stay units, or integrated primary care follow-up) can also relieve output bottlenecks (Leff et al., 2005; Gonçalves-Bradley et al., 2017; Kyeremanteng et al., 2021). However, these alternatives remain underdeveloped and unevenly implemented in the Chilean context.</p>
+<p>This initial model aims to quantify the bed gap and spark technical discussion. It is not intended as a final proposal but rather as a stepping stone toward more robust, dynamic, and context-sensitive hospital capacity planning.</p>
+</section>
+<section id="methods" class="level2">
+<h2 class="anchored" data-anchor-id="methods">Methods</h2>
+<section id="review-of-planning-models" class="level3">
+<h3 class="anchored" data-anchor-id="review-of-planning-models">Review of Planning Models</h3>
+<p>Following the systematic review by Ravaghi et al.&nbsp;(2020), five main approaches to hospital bed planning were identified:</p>
+<ul>
+<li><strong>Trend-based models:</strong> Useful in systems with stable historical data. In Chile, this is limited by inconsistent structural changes.</li>
+<li><strong>Regression models:</strong> Require granular patient-level data, which is often unavailable.</li>
+<li><strong>Simulation or capacity models:</strong> Powerful but need detailed information on patient flows and time-use.</li>
+<li><strong>Optimization models:</strong> Depend on strong cost assumptions and efficiency goals.</li>
+<li><strong>Formula-based models:</strong> Transparent, adaptable, and feasible in data-limited environments—thus selected for this study.</li>
+</ul>
+</section>
+</section>
+<section id="estimation-formula" class="level2">
+<h2 class="anchored" data-anchor-id="estimation-formula">Estimation Formula</h2>
+<p>This first example is a model that estimates the number of beds (( B )) needed using the following formula:</p>
+<p><span class="math display">\[
+B = \frac{D \times (1 - s)}{O \times A}
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li>( D ): Total patient-days of demand for hospital care<br>
+</li>
+<li>( s ): Proportion of potentially avoidable hospitalizations (proxy for substitution by primary care)<br>
+</li>
+<li>( O ): Target occupancy rate<br>
+</li>
+<li>( A ): Average Length of Stay (ALOS)</li>
+</ul>
+<p>This formula assumes a steady-state approximation and deterministic behavior. It was implemented in <strong>R</strong> using publicly available sources.</p>
+</section>
+<section id="data-sources" class="level2">
+<h2 class="anchored" data-anchor-id="data-sources">Data Sources</h2>
+<ul>
+<li><strong>DEIS (Ministry of Health):</strong> Hospital discharges, diagnoses, and ALOS by bed type (2018–2023), excluding neonatology and mental health<br>
+</li>
+<li><strong>INE Census Projections:</strong> Population estimates by commune and age group<br>
+</li>
+<li><strong>FONASA Enrollment:</strong> Used to define the public healthcare population denominator</li>
+</ul>
+</section>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+<p><strong>Figure 1. Evolution of current and projected/needed beds by Health Service (2014–2022):</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="bed-estimation.jpg" class="img-fluid figure-img"></p>
+<figcaption>Current vs Projected Beds</figcaption>
+</figure>
+</div>
+<p>The projected number of hospital beds exceeds the actual installed capacity in many Health Services, particularly in recent years. According to the model’s parameters, multiple regions do not meet the minimum supply needed for optimal operations.</p>
+</section>
+<section id="discussion" class="level2">
+<h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
+<p>Regions such as Metropolitano Suroriente, Metropolitano Sur, Valparaíso San Antonio, and Del Maule exhibit persistent bed gaps. These may reflect structural underinvestment or demand growth not matched by infrastructure expansion.</p>
+<p>Conversely, Health Services such as Magallanes, Arauco, and Ñuble show smaller or closing gaps, possibly due to localized efficiency gains or lower demand.</p>
+<p>This projection reverses previous assumptions of overcapacity and highlights the need for proactive capacity planning.</p>
+</section>
+<section id="future-analytical-extensions" class="level2">
+<h2 class="anchored" data-anchor-id="future-analytical-extensions">Future Analytical Extensions</h2>
+<ol type="1">
+<li><p><strong>International Benchmarking:</strong> Conduct a literature review of hospital bed planning models used globally to guide policy design in Chile.</p></li>
+<li><p><strong>Spatial and Equity Adjustments:</strong> Integrate territorial and sociodemographic variables (rurality, population density, age structure, SES) into the model.</p></li>
+<li><p><strong>Complementary Models:</strong> Apply simulation techniques or dynamic systems models for robustness checks and scenario testing.</p></li>
+<li><p><strong>Crisis and Climate Integration:</strong> Model the impact of external shocks—such as heatwaves, air pollution, or epidemics—on hospital capacity requirements.</p></li>
+<li><p><strong>Towards a National Capacity Model:</strong> This first exercise should serve as a foundation for a national, publicly validated capacity model for hospital planning in Chile.</p></li>
+</ol>
 
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

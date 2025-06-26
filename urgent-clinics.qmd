@@ -5,25 +5,6 @@ format: html
 
 ```{=html}
 <script>
-  const password = prompt("Por favor, introduce la contraseña para acceder:");
-  const correct = "saraccess2024"; // Puedes cambiar esta clave a la que tú quieras
-
-  if (password !== correct) {
-    document.body.innerHTML = `
-      <h1>Acceso denegado</h1>
-      <p>No tienes permiso para ver este contenido.</p>
-    `;
-  }
-</script>
-```
-
----
-title: "Urgent Clinics impact in healthcare networks"
-format: html
----
-
-```{=html}
-<script>
   const password = prompt("Please enter the password to access this content:");
   const correct = "saraccess2024";  // Change this password to whatever you prefer
 
@@ -123,3 +104,106 @@ Estimates using the same ±360-day window:
 -   Control for seasonality, epidemics, and sociopolitical disruptions.
 -   Assess referral hospital-level effects, especially for Hospital El Carmen in Maipú, which both SARs serve.
 -   Build a centralized national dataset for comprehensive system-wide evaluations of urgent care reforms.
+
+
+
+## Appendix 2: Exploring the Reasons Behind Leaving Without Being Seen (LWBS)
+
+### Introduction
+
+To understand the motivations, barriers, and contextual factors that influence a patient’s decision to leave the Emergency Department (ED) before being evaluated by a medical professional.
+
+### Methods
+
+This sub-study will employ a qualitative exploratory design, utilizing semi-structured interviews with patients who left the ED without being seen (LWBS). The goal is to capture in-depth perspectives on the social, systemic, and personal factors that contribute to the decision to leave before undergoing medical evaluation.
+
+### Study Design and Setting
+
+The study will be conducted in selected public hospitals in urban and semi-urban areas of Chile with high ED volumes and a documented proportion of LWBS cases. Recruitment will focus on sites within the national public health system (FONASA), ensuring relevance to the broader population served.
+
+### Participant Selection
+
+Participants will be recruited through purposive sampling, focusing on individuals who recently left the ED without being seen. Recruitment will be conducted via telephone contact, using ED visit records from a representative sample of public hospital EDs across each Servicio de Salud in Chile.
+
+**Inclusion criteria:**
+
+- Age 18 or older  
+- Documented an LWBS event within the last 30 days  
+- Willingness and ability to provide informed consent  
+
+### Data Collection
+
+Semi-structured interviews will be conducted in person or via telephone by trained interviewers using a guide developed from the literature and expert input. The guide will explore:
+
+- Expectations and experiences before leaving  
+- Perceived waiting times and communication  
+- Structural barriers (e.g., transport, childcare, costs)  
+- Trust in the system and prior experiences  
+- Perceptions of urgency and safety  
+
+Interviews will be audio-recorded, transcribed verbatim, and anonymised.
+
+### Data Analysis
+
+Transcripts will be analysed using thematic analysis following Braun and Clarke’s six-step framework. Coding will be both inductive and deductive. NVivo or similar software will support analysis.
+
+Triangulation will include:
+
+- Independent coding by two researchers  
+- Feedback from patient representatives and ED clinicians during interpretation  
+
+### Ethical Considerations
+
+The study will be approved by an accredited ethics committee in Chile. Informed consent will be obtained. Confidentiality and voluntary participation will be guaranteed.
+
+---
+
+### Interview Guide (Questionnaire)
+
+**Instructions for Interviewers:**
+
+- Ensure informed consent has been obtained before beginning the interview.  
+- Interview in a quiet and private setting when possible.  
+- Use probing questions as needed to elicit detailed responses.  
+- Record the interview (if permitted) or take detailed notes.  
+
+#### Section 1: Patient Profile
+
+- Age:  
+- Gender:  
+- Place of residence (commune/neighborhood):  
+- Health insurance type:  
+- Occupation:  
+- Have you previously visited this ED? (Yes/No)  
+- Have you left an ED without being seen before? (Yes/No)  
+
+#### Section 2: Visit Context
+
+1. What brought you to the Emergency Department on the day in question?  
+2. What symptoms or concerns were you experiencing?  
+3. At what time did you arrive at the ED?  
+4. How long did you wait before deciding to leave?  
+5. Were you triaged by a nurse or healthcare professional? (Yes/No)  
+6. Did you receive any information about your expected waiting time? (Yes/No)  
+
+#### Section 3: Reasons for Leaving
+
+7. What were your main reasons for deciding to leave the ED?  
+8. Did you feel your health concern was no longer urgent?  
+9. Were there specific aspects of the waiting experience that influenced your decision (e.g., overcrowding, discomfort, lack of communication)?  
+10. Did you try to speak with the staff before leaving? Why or why not?  
+11. Did anyone accompany you to the ED, and did they influence your decision to leave?  
+
+#### Section 4: After Leaving the ED
+
+12. Did you seek medical care elsewhere after leaving?  
+13. Did your condition improve, worsen, or remain the same?  
+14. In hindsight, do you believe leaving the ED was the right decision? Why or why not?  
+
+#### Section 5: Suggestions for Improvement
+
+15. What could the hospital or staff have done differently to help you stay and receive care?  
+16. Do you have suggestions to improve the experience for patients waiting in the ED?  
+
+**Closing Remarks:**  
+Thank the participants for their time and insights. Remind them of the importance of their contribution to improving emergency care services.

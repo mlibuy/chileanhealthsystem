@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Emergency medicine physician impact in emergency department timeframes – matiaslibuy</title>
+<title>Emergency medicine physician impact in emergency department timeframes, the case of a Chilean hospital – matiaslibuy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -149,7 +149,17 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#emergency-medicine-physician-impact-in-ed-timeframes" id="toc-emergency-medicine-physician-impact-in-ed-timeframes" class="nav-link active" data-scroll-target="#emergency-medicine-physician-impact-in-ed-timeframes">Emergency medicine physician impact in ED timeframes</a></li>
+  <li><a href="#emergency-medicine-physician-impact-in-ed-timeframes" id="toc-emergency-medicine-physician-impact-in-ed-timeframes" class="nav-link active" data-scroll-target="#emergency-medicine-physician-impact-in-ed-timeframes">Emergency medicine physician impact in ED timeframes</a>
+  <ul class="collapse">
+  <li><a href="#evaluating-the-impact-of-introducing-an-ambulatory-process-coordinator-on-emergency-department-throughput-a-regression-discontinuity-design" id="toc-evaluating-the-impact-of-introducing-an-ambulatory-process-coordinator-on-emergency-department-throughput-a-regression-discontinuity-design" class="nav-link" data-scroll-target="#evaluating-the-impact-of-introducing-an-ambulatory-process-coordinator-on-emergency-department-throughput-a-regression-discontinuity-design">Evaluating the Impact of Introducing an Ambulatory Process Coordinator on Emergency Department Throughput: A Regression Discontinuity Design</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
+  <li><a href="#future-directions" id="toc-future-directions" class="nav-link" data-scroll-target="#future-directions">Future Directions</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -158,7 +168,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Emergency medicine physician impact in emergency department timeframes</h1>
+<h1 class="title">Emergency medicine physician impact in emergency department timeframes, the case of a Chilean hospital</h1>
 </div>
 
 
@@ -175,12 +185,123 @@ window.Quarto = {
 </header>
 
 
+<script>
+  const password = prompt("Please enter the password to access this content:");
+  const correct = "medimpact2024";  // Cambia esta clave si lo deseas
+
+  if (password !== correct) {
+    document.body.innerHTML = `
+      <h1>Access Denied</h1>
+      <p>You are not authorized to view this content.</p>
+    `;
+  }
+</script>
 <section id="emergency-medicine-physician-impact-in-ed-timeframes" class="level1">
 <h1>Emergency medicine physician impact in ED timeframes</h1>
 <p>This section includes interrupted time series and regression discontinuity models assessing the effect of having emergency physicians on critical indicators like length of stay and time-to-doctor.</p>
+<section id="evaluating-the-impact-of-introducing-an-ambulatory-process-coordinator-on-emergency-department-throughput-a-regression-discontinuity-design" class="level2">
+<h2 class="anchored" data-anchor-id="evaluating-the-impact-of-introducing-an-ambulatory-process-coordinator-on-emergency-department-throughput-a-regression-discontinuity-design">Evaluating the Impact of Introducing an Ambulatory Process Coordinator on Emergency Department Throughput: A Regression Discontinuity Design</h2>
+<section id="introduction" class="level3">
+<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<p>In October 2023, Hospital El Carmen in Maipú implemented a new position—the Ambulatory Process Coordinator—in the Adult Emergency Department. This role, held by a certified emergency physician, was introduced to streamline patient flow and ensure that clinical decisions (admission, discharge, referral) were made within 6 hours of admission.</p>
+<p>This study evaluates the causal effect of the intervention on the average time from medical evaluation to discharge using a Regression Discontinuity Design (RDD), taking advantage of the sharp assignment around the implementation date (October 22, 2023).</p>
+</section>
+<section id="methods" class="level3">
+<h3 class="anchored" data-anchor-id="methods">Methods</h3>
+<section id="study-design" class="level4">
+<h4 class="anchored" data-anchor-id="study-design">Study Design</h4>
+<p>A sharp Regression Discontinuity Design (RDD) was used. The cutoff date for intervention was October 22, 2023. The estimating equation is as follows:</p>
+<p><span class="math display">\[
+Y_i = \alpha + \tau D_i + f(x_i) + \varepsilon_i
+\]</span></p>
+<p><strong>Where:</strong></p>
+<ul>
+<li>( Y_i ): outcome for individual <em>i</em>, defined as time from medical evaluation to discharge (in minutes),<br>
+</li>
+<li>( D_i = 1 ) if ( x_i ) (post-intervention), 0 otherwise,<br>
+</li>
+<li>( f(x_i) ): flexible function (e.g., local linear) of the running variable <em>x</em>,<br>
+</li>
+<li>( ): treatment effect of interest (impact of the intervention),<br>
+</li>
+<li>( _i ): error term.</li>
+</ul>
+<p>We employ local polynomial regressions with robust bias correction and optimal bandwidth selection using the <code>rdrobust</code> package in R. Models are estimated for bandwidths ranging from ±30 to ±365 days.</p>
+</section>
+<section id="data-and-variable-construction" class="level4">
+<h4 class="anchored" data-anchor-id="data-and-variable-construction">Data and Variable Construction</h4>
+<ul>
+<li><strong>Outcome:</strong> Time to medical discharge (in minutes), computed from h:m:s timestamp strings.<br>
+</li>
+<li><strong>Running variable:</strong> Days from October 22, 2023.<br>
+</li>
+<li><strong>Filters:</strong> Exclude extreme values (&lt;0 or &gt;1000 min); jitter applied (±0.001) to avoid mass points.<br>
+</li>
+<li><strong>Seasonality:</strong> Adjusted via STL decomposition and categorical regression on week-of-year.</li>
+</ul>
+</section>
+</section>
+<section id="results" class="level3">
+<h3 class="anchored" data-anchor-id="results">Results</h3>
+<p>This Regression Discontinuity Design (RDD) graph evaluates the causal effect of an intervention (e.g., the arrival of a specialist physician) on emergency department performance, specifically, the time from medical evaluation to discharge (measured in minutes).</p>
+<p>The red line represents a smoothed local polynomial regression on either side of the threshold (the vertical black line at day 0), and blue dots with error bars show binned average outcomes with their confidence intervals.</p>
+<section id="regression-equation-and-definitions" class="level4">
+<h4 class="anchored" data-anchor-id="regression-equation-and-definitions">Regression Equation and Definitions</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot 2025-06-25 at 8.25.52 PM.png" class="img-fluid figure-img"></p>
+<figcaption>RDD Model Equation</figcaption>
+</figure>
+</div>
+</section>
+<section id="figure-1.-impact-of-an-emergency-physician-on-time-from-medical-evaluation-to-discharge-rdd-60-day-window" class="level4">
+<h4 class="anchored" data-anchor-id="figure-1.-impact-of-an-emergency-physician-on-time-from-medical-evaluation-to-discharge-rdd-60-day-window">Figure 1. Impact of an emergency physician on time from medical evaluation to discharge, RDD (±60-day window)</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screenshot 2025-06-25 at 8.26.03 PM.png" class="img-fluid figure-img"></p>
+<figcaption>RDD Plot</figcaption>
+</figure>
+</div>
+<p>There appears to be a discrete drop in the average time from medical evaluation to discharge immediately after the intervention, suggesting a potential causal reduction in care delays following the specialist’s arrival.</p>
+<p>The pattern before the intervention shows relatively higher variability and higher averages, while the post-intervention period exhibits a decline in both mean time and variation.</p>
+<p>This visual discontinuity supports the hypothesis that specialist integration into ED operations has a positive efficiency impact.</p>
+</section>
+</section>
+<section id="discussion" class="level3">
+<h3 class="anchored" data-anchor-id="discussion">Discussion</h3>
+<p>This RDD analysis reveals a significant and immediate reduction in discharge time following the implementation of the process coordinator role. While the absolute decrease may seem modest in minutes, the cumulative effect becomes substantial in the context of a high-volume ED.</p>
+<p>The findings suggest that incorporating a dedicated coordinator can enhance operational efficiency by:</p>
+<ul>
+<li>Streamlining case prioritization<br>
+</li>
+<li>Reducing backlogs<br>
+</li>
+<li>Improving interdisciplinary communication</li>
+</ul>
+<p>These results provide support for the adoption and scaling of similar roles in comparable hospital settings.</p>
+<p>However, limitations include:</p>
+<ul>
+<li>Potential unobserved co-interventions<br>
+</li>
+<li>Single-hospital context, limiting generalizability</li>
+</ul>
+</section>
+<section id="future-directions" class="level3">
+<h3 class="anchored" data-anchor-id="future-directions">Future Directions</h3>
+<ul>
+<li>Replicate across multiple hospitals and systems.<br>
+</li>
+<li>Assess additional outcomes (e.g., mortality, readmissions, patient satisfaction).<br>
+</li>
+<li>Incorporate qualitative assessments of staff and patient experience.<br>
+</li>
+<li>Apply staggered rollout designs or multi-site trials for better causal identification.</li>
+</ul>
 
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

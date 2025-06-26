@@ -1,8 +1,101 @@
 ---
-title: "Emergency medicine physician impact in emergency department timeframes"
+title: "Emergency medicine physician impact in emergency department timeframes, the case of a Chilean hospital"
 format: html
 ---
+
+```{=html}
+<script>
+  const password = prompt("Please enter the password to access this content:");
+  const correct = "medimpact2024";  // Cambia esta clave si lo deseas
+
+  if (password !== correct) {
+    document.body.innerHTML = `
+      <h1>Access Denied</h1>
+      <p>You are not authorized to view this content.</p>
+    `;
+  }
+</script>
+```
 
 # Emergency medicine physician impact in ED timeframes
 
 This section includes interrupted time series and regression discontinuity models assessing the effect of having emergency physicians on critical indicators like length of stay and time-to-doctor.
+
+## Evaluating the Impact of Introducing an Ambulatory Process Coordinator on Emergency Department Throughput: A Regression Discontinuity Design
+
+### Introduction
+
+In October 2023, Hospital El Carmen in Maipú implemented a new position—the Ambulatory Process Coordinator—in the Adult Emergency Department. This role, held by a certified emergency physician, was introduced to streamline patient flow and ensure that clinical decisions (admission, discharge, referral) were made within 6 hours of admission.
+
+This study evaluates the causal effect of the intervention on the average time from medical evaluation to discharge using a Regression Discontinuity Design (RDD), taking advantage of the sharp assignment around the implementation date (October 22, 2023).
+
+### Methods
+
+#### Study Design
+
+A sharp Regression Discontinuity Design (RDD) was used. The cutoff date for intervention was October 22, 2023. The estimating equation is as follows:
+
+$$
+Y_i = \alpha + \tau D_i + f(x_i) + \varepsilon_i
+$$
+
+**Where:**
+
+- \( Y_i \): outcome for individual *i*, defined as time from medical evaluation to discharge (in minutes),  
+- \( D_i = 1 \) if \( x_i \geq 0 \) (post-intervention), 0 otherwise,  
+- \( f(x_i) \): flexible function (e.g., local linear) of the running variable *x*,  
+- \( \tau \): treatment effect of interest (impact of the intervention),  
+- \( \varepsilon_i \): error term.  
+
+We employ local polynomial regressions with robust bias correction and optimal bandwidth selection using the `rdrobust` package in R. Models are estimated for bandwidths ranging from ±30 to ±365 days.
+
+#### Data and Variable Construction
+
+- **Outcome:** Time to medical discharge (in minutes), computed from h:m:s timestamp strings.  
+- **Running variable:** Days from October 22, 2023.  
+- **Filters:** Exclude extreme values (<0 or >1000 min); jitter applied (±0.001) to avoid mass points.  
+- **Seasonality:** Adjusted via STL decomposition and categorical regression on week-of-year.  
+
+### Results
+
+This Regression Discontinuity Design (RDD) graph evaluates the causal effect of an intervention (e.g., the arrival of a specialist physician) on emergency department performance, specifically, the time from medical evaluation to discharge (measured in minutes).
+
+The red line represents a smoothed local polynomial regression on either side of the threshold (the vertical black line at day 0), and blue dots with error bars show binned average outcomes with their confidence intervals.
+
+#### Regression Equation and Definitions
+
+![RDD Model Equation](Screenshot%202025-06-25%20at%208.25.52%E2%80%AFPM.png)
+
+#### Figure 1. Impact of an emergency physician on time from medical evaluation to discharge, RDD (±60-day window)
+
+![RDD Plot](Screenshot%202025-06-25%20at%208.26.03%E2%80%AFPM.png)
+
+There appears to be a discrete drop in the average time from medical evaluation to discharge immediately after the intervention, suggesting a potential causal reduction in care delays following the specialist's arrival.
+
+The pattern before the intervention shows relatively higher variability and higher averages, while the post-intervention period exhibits a decline in both mean time and variation.
+
+This visual discontinuity supports the hypothesis that specialist integration into ED operations has a positive efficiency impact.
+
+### Discussion
+
+This RDD analysis reveals a significant and immediate reduction in discharge time following the implementation of the process coordinator role. While the absolute decrease may seem modest in minutes, the cumulative effect becomes substantial in the context of a high-volume ED.
+
+The findings suggest that incorporating a dedicated coordinator can enhance operational efficiency by:
+
+- Streamlining case prioritization  
+- Reducing backlogs  
+- Improving interdisciplinary communication  
+
+These results provide support for the adoption and scaling of similar roles in comparable hospital settings.
+
+However, limitations include:
+
+- Potential unobserved co-interventions  
+- Single-hospital context, limiting generalizability  
+
+### Future Directions
+
+- Replicate across multiple hospitals and systems.  
+- Assess additional outcomes (e.g., mortality, readmissions, patient satisfaction).  
+- Incorporate qualitative assessments of staff and patient experience.  
+- Apply staggered rollout designs or multi-site trials for better causal identification.  
