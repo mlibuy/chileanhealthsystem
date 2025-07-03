@@ -19,6 +19,7 @@ website:
     right:
       - icon: envelope
         href: mailto:matiaslibuy@uchile.cl
+  google-analytics: "G-91VMC9QW28"
 
 format:
   html:
