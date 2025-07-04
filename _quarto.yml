@@ -9,11 +9,11 @@ website:
       - href: index.qmd
         text: Home
       - href: urgent-clinics.qmd
-        text: Urgent Clinics impact in healthcare networks
+        text: WP1. Urgent Clinics impact in healthcare networks
       - href: physician-impact.qmd
-        text: Emergency medicine physician impact in emergency department timeframes
+        text: WP2. Emergency medicine physician impact in emergency department timeframes
       - href: bed-estimation.qmd
-        text: Service/bed model estimation for Chile
+        text: WP3. Service/bed model estimation for Chile
   page-footer:
     left: "© 2025 Matías Libuy Ríos"
     right:

@@ -10,13 +10,13 @@ My work explores urgent care saturation, hospital capacity planning, and the rol
 
 ## Explore the sections
 
-- [Urgent Clinics impact in healthcare networks](urgent-clinics.html)  
+- [WP1. Urgent Clinics impact in healthcare networks](urgent-clinics.html)  
   Evaluation of the impact of new primary urgent care centers (SAPU, SAR) on emergency department demand and network efficiency.
 
-- [Emergency medicine physician impact in emergency department timeframes](physician-impact.html)  
+- [WP2. Emergency medicine physician impact in emergency department timeframes](physician-impact.html)  
   Causal analyses (RDD and ITS) on how emergency medicine physicians influence wait times, throughput, and patient outcomes.
 
-- [Bed model estimation](bed-estimation.html)  
+- [WP3.Bed model estimation](bed-estimation.html)  
   Forecasting hospital bed needs by level of care and health service using adjusted formula-based models and avoidable hospitalizations.
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Bed model estimation for Chile"
+title: "WP2. Bed model estimation for Chile"
 format: html
 ---
 
